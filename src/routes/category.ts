@@ -3,6 +3,7 @@ import { GetCategoryController } from '../controllers/category/get/get-category-
 import { AddCategoryController } from '../controllers/category/add/add-category-controller'
 import { UpdateCategoryController } from '../controllers/category/update/update-category-controller'
 import { DeleteCategoryController } from "../controllers/category/delete/delete-category-controller";
+import { validacao } from "../helpers/auth";
 
 const getcategorycontroller = new GetCategoryController()
 const addcategorycontroller = new AddCategoryController()
@@ -11,9 +12,9 @@ const deletecategorycotroller = new DeleteCategoryController()
 
 const route = Router()
 
-route.get('/category', getcategorycontroller.getCategory)
-route.post('/category', addcategorycontroller.addCategory)
-route.put('/category/:id', updatecategorycontroller.UpdateCategory)
-route.delete('/category/:id', deletecategorycotroller.DeleteCategory)
+route.get('/category', validacao, getcategorycontroller.getCategory)
+route.post('/category', validacao, addcategorycontroller.addCategory)
+route.put('/category/:id', validacao, updatecategorycontroller.UpdateCategory)
+route.delete('/category/:id', validacao, deletecategorycotroller.DeleteCategory)
 
 export default route

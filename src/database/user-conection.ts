@@ -14,4 +14,7 @@ export class UserConection {
     deleteUser(id: number) {
         return knex.from('users').where('id_user', id).del()
     }
+    login(email: string) {
+        return knex.from('users').where('email',email).andWhere('status',1).first()
+    }
 }

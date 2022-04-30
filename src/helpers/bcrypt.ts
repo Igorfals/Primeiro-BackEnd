@@ -4,3 +4,7 @@ export function gerarCrypto(senha: any){
     return senhacryptografada
 
 }
+
+export function compararSenha(senha: string, senhacryptografada: string){
+    return bcrypt.compare(senha, senhacryptografada)
+}
